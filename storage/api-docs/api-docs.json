@@ -1,0 +1,336 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "The Candidate API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/candidates": {
+            "get": {
+                "tags": [
+                    "CandidateList"
+                ],
+                "summary": "Get list of candidates",
+                "description": "",
+                "operationId": "getCandidateList",
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "CandidateCreate"
+                ],
+                "summary": "Create a candidate",
+                "description": "",
+                "operationId": "postCandidateCreate",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "education",
+                                    "birthday",
+                                    "experience",
+                                    "last_position",
+                                    "applied_position",
+                                    "skills",
+                                    "email",
+                                    "phone",
+                                    "resume"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "text"
+                                    },
+                                    "education": {
+                                        "type": "text"
+                                    },
+                                    "birthday": {
+                                        "type": "text"
+                                    },
+                                    "experience": {
+                                        "type": "text"
+                                    },
+                                    "last_position": {
+                                        "type": "text"
+                                    },
+                                    "applied_position": {
+                                        "type": "text"
+                                    },
+                                    "skills": {
+                                        "type": "text"
+                                    },
+                                    "email": {
+                                        "type": "email"
+                                    },
+                                    "phone": {
+                                        "type": "text"
+                                    },
+                                    "resume": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/api/candidates/{id}": {
+            "get": {
+                "tags": [
+                    "CandidateDetail"
+                ],
+                "summary": "Get the candidate details",
+                "description": "",
+                "operationId": "getCandidateDetail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Candidate",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "CandidateUpdate"
+                ],
+                "summary": "Update a candidate",
+                "description": "",
+                "operationId": "putCandidateUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Candidate",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "DeleteCandidate"
+                ],
+                "summary": "Update a candidate",
+                "description": "",
+                "operationId": "deleteCandidate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Candidate",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "passport": {
+                "type": "oauth2",
+                "description": "Laravel passport oauth2 security.",
+                "in": "header",
+                "scheme": "https",
+                "flows": {
+                    "password": {
+                        "authorizationUrl": "http://localhost:8000/oauth/authorize",
+                        "tokenUrl": "http://localhost:8000/oauth/token",
+                        "refreshUrl": "http://localhost:8000/token/refresh",
+                        "scopes": []
+                    }
+                }
+            }
+        }
+    }
+}
